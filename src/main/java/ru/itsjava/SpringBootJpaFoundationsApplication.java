@@ -9,11 +9,11 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class SpringBootJpaFoundationsApplication {
 
-	public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException {
 
-		SpringApplication.run(SpringBootJpaFoundationsApplication.class, args);
+        SpringApplication.run(SpringBootJpaFoundationsApplication.class, args);
 
-		Console.main(args);
-	}
+        Console.main(args);
+    }
 
 }
