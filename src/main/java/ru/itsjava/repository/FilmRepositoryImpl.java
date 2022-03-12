@@ -3,6 +3,8 @@ package ru.itsjava.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import ru.itsjava.domain.Film;
+import ru.itsjava.domain.Genre;
+import ru.itsjava.domain.Place;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -19,6 +21,11 @@ public class FilmRepositoryImpl implements FilmRepository {
         return entityManager
                 .createQuery("select distinct f from films f join fetch f.genre join fetch f.placeList ", Film.class)
                 .getResultList();
+    }
+
+    @Override
+    public Film getById(long id) {
+        return entityManager.find(Film.class, id);
     }
 
     @Override
