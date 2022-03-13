@@ -1,16 +1,15 @@
-insert into genre(id, name)
-values (1, 'fantasy');
-insert into genre(id, name)
-values (2, 'fantastic');
 
-insert into films (id, title, genre_id)
-values (1, 'Harry Potter', 1);
-insert into films (id, title, genre_id)
-values (2, 'Star Wars', 2);
+insert into author(id, name)
+values (1, 'Leo Tolstoy');
+insert into author(id, name)
+values (2, 'Mikhailo Staritsky');
 
-insert into place (id, name, film_id)
-values (1, 'London', 1);
-insert into place (id, name, film_id)
-values (2, 'Train', 1);
-insert into place (id, name, film_id)
-values (3, 'Hollywood', 2);
+insert into books(id, title, author_id)
+values (1, 'War and Peace', 1);
+insert into books (id, title, author_id)
+values (2, 'For two hares', 2);
+
+insert into placeBook(id, name, book_id)
+values (1, 'Russian', 1);
+insert into placeBook(id, name, book_id)
+values (2, 'Ukraine', 2);

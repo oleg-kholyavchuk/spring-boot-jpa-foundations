@@ -1,19 +1,20 @@
-drop table if exists genre, films, place;
 
-create table genre(
+drop table if exists author, books, placeBook;
+
+create table author(
 id bigint primary key auto_increment,
 name varchar(256)
 );
 
-create table films(
+create table books(
 id bigint primary key auto_increment,
 title varchar(256),
-genre_id bigint references genre(id)
+author_id bigint references author(id)
 );
 
-create table place(
+create table placeBook(
 id bigint primary key auto_increment,
 name varchar(256),
-film_id bigint references films(id)
+book_id bigint references books(id)
 );
 
