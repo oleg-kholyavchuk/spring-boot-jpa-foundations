@@ -1,11 +1,7 @@
 package ru.itsjava.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.itsjava.domain.Author;
 
-@SuppressWarnings("ALL")
-public interface AuthorRepository {
-    Author getById(long id);
-    void insert(Author author);
-    void update(Author author);
-    void delete(long id);
+public interface AuthorRepository extends JpaRepository<Author, Long> {
 }
