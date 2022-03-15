@@ -4,8 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import ru.itsjava.domain.*;
+import ru.itsjava.repository.AnimalRepository;
 import ru.itsjava.repository.BookRepository;
 import ru.itsjava.repository.AuthorRepository;
+import ru.itsjava.repository.PetRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,42 +20,40 @@ public class SpringBootJpaFoundationsApplication {
 
         ApplicationContext context = SpringApplication.run(SpringBootJpaFoundationsApplication.class, args);
 
-        AuthorRepository authorRepository = context.getBean(AuthorRepository.class);
+        PetRepository petRepository = context.getBean(PetRepository.class);
 
-        System.out.println("authorRepository.getById(1L) = " + authorRepository.getById(1L));
+        System.out.println("petRepository.getById(1L) = " + petRepository.getById(1L));
 
-        Author author = new Author(0L, "the author is unknown");
-        authorRepository.save(author);
-        System.out.println("authorRepository.getById(3L) = " + authorRepository.getById(3L));
+        Pet pet = new Pet(0L, "Dog");
+        petRepository.save(pet);
+        System.out.println("petRepository.getById(3L) = " + petRepository.getById(3L));
 
-        Author author1 = authorRepository.getById(2L);
-        author1.setName("the author is unknown");
+        Pet pet1 = petRepository.getById(2L);
+        pet1.setPet("Mouse");
+        petRepository.save(pet1);
+        System.out.println("petRepository.getById(2L) = " +petRepository.getById(2L));
 
-        authorRepository.save(author1);
-        System.out.println("authorRepository.getById(3L) = " + authorRepository.getById(3L));
+        petRepository.deleteById(3L);
+        System.out.println("petRepository.getById(3L) = " + petRepository.findById(3L).isPresent());
 
-        authorRepository.deleteById(3L);
-        System.out.println("authorRepository.getById(3L) = " + authorRepository.findById(3L).isPresent());
+        AnimalRepository animalRepository = context.getBean(AnimalRepository.class);
+        System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
 
+        Pet pet2 = new Pet(0L, "Cat");
+        BreedingPlace breedingPlace = new BreedingPlace(0L, "Unknown", 1L);
+        List<BreedingPlace> breedingPlaceList = new ArrayList<>();
+        breedingPlaceList.add(breedingPlace);
 
-        BookRepository bookRepository = context.getBean(BookRepository.class);
-        System.out.println("bookRepository.findAll() = " + bookRepository.findAll());
+        Animal animal = new Animal(0L, "Russian", pet2, breedingPlaceList);
+        animalRepository.save(animal);
+        System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
 
-        Author author2 = new Author(0L, "Someone's out there");
-        PlaceBook placeBook = new PlaceBook(0L, "Unknown", 1L);
-        List<PlaceBook> place2 = new ArrayList<>();
-        place2.add(placeBook);
+        Animal animal1 = animalRepository.getById(1L);
+        animal1.setBreed("USA");
+        animalRepository.save(animal1);
+        System.out.println("animalRepository.getById(1L) = " + animalRepository.getById(1L));
 
-        Book book = new Book(0L, "Russian in Texas", author2, place2);
-        bookRepository.save(book);
-        System.out.println("bookRepository.findAll() = " + bookRepository.findAll());
-
-        Book book1 = bookRepository.getById(1L);
-        book1.setTitle("Super film");
-        bookRepository.save(book1);
-        System.out.println("bookRepository.getById(1L) = " + bookRepository.getById(1L));
-
-        bookRepository.deleteById(2L);
-        System.out.println("bookRepository.findAll() = " + bookRepository.findAll());
+        animalRepository.deleteById(2L);
+        System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
     }
 }

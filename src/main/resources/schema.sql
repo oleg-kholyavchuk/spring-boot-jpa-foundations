@@ -1,20 +1,21 @@
+drop table if exists pet, animal, breeding_place;
 
-drop table if exists author, books, placeBook;
-
-create table author(
+create table pet(
 id bigint primary key auto_increment,
-name varchar(256)
+pet varchar(256)
 );
 
-create table books(
+create table animal(
 id bigint primary key auto_increment,
-title varchar(256),
-author_id bigint references author(id)
+breed varchar(256),
+pet_id bigint references pet(id)
 );
 
-create table placeBook(
+create table breeding_place(
 id bigint primary key auto_increment,
 name varchar(256),
-book_id bigint references books(id)
+animal_id bigint references animal(id)
 );
+
+
 

@@ -1,15 +1,15 @@
+insert into pet(id, pet)
+values (1, 'parrot');
+insert into pet(id, pet)
+values (2, 'hamster');
 
-insert into author(id, name)
-values (1, 'Leo Tolstoy');
-insert into author(id, name)
-values (2, 'Mikhailo Staritsky');
+insert into animal(id, breed, pet_id)
+values (1, 'budgie', 1);
+insert into animal(id, breed, pet_id)
+values (2, 'china_hamster', 2);
 
-insert into books(id, title, author_id)
-values (1, 'War and Peace', 1);
-insert into books (id, title, author_id)
-values (2, 'For two hares', 2);
+insert into breeding_place(id, name, animal_id)
+values (1, 'Italy', 1);
+insert into breeding_place (id, name, animal_id)
+values (2, 'France', 1);
 
-insert into placeBook(id, name, book_id)
-values (1, 'Russian', 1);
-insert into placeBook(id, name, book_id)
-values (2, 'Ukraine', 2);
