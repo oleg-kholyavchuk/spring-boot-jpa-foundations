@@ -23,5 +23,5 @@ public class Animal {
 
     @OneToMany(targetEntity = BreedingPlace.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "animal_id")
-    private List<BreedingPlace> breedingPlaceList ;
+    private List<BreedingPlace> breedingPlace ;
 }

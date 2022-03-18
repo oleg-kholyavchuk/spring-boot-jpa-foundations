@@ -1,3 +1,4 @@
+
 drop table if exists pet, animal, breeding_place;
 
 create table pet(

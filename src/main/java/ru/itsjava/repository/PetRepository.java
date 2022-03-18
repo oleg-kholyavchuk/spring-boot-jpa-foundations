@@ -1,7 +1,10 @@
 package ru.itsjava.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import ru.itsjava.domain.Pet;
 
-public interface PetRepository extends JpaRepository<Pet, Long> {
+public interface PetRepository {
+    Pet getById(long id);
+    void insert(Pet pet);
+    void update(Pet pet);
+    void deleteById(long id);
 }

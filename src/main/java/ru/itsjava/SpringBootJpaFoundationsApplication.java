@@ -5,8 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import ru.itsjava.domain.*;
 import ru.itsjava.repository.AnimalRepository;
-import ru.itsjava.repository.BookRepository;
-import ru.itsjava.repository.AuthorRepository;
 import ru.itsjava.repository.PetRepository;
 
 import java.util.ArrayList;
@@ -25,16 +23,16 @@ public class SpringBootJpaFoundationsApplication {
         System.out.println("petRepository.getById(1L) = " + petRepository.getById(1L));
 
         Pet pet = new Pet(0L, "Dog");
-        petRepository.save(pet);
+        petRepository.insert(pet);
         System.out.println("petRepository.getById(3L) = " + petRepository.getById(3L));
 
         Pet pet1 = petRepository.getById(2L);
         pet1.setPet("Mouse");
-        petRepository.save(pet1);
+        petRepository.update(pet1);
         System.out.println("petRepository.getById(2L) = " +petRepository.getById(2L));
 
         petRepository.deleteById(3L);
-        System.out.println("petRepository.getById(3L) = " + petRepository.findById(3L).isPresent());
+        System.out.println("petRepository.getById(3L) = " + petRepository.getById(3L));
 
         AnimalRepository animalRepository = context.getBean(AnimalRepository.class);
         System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
@@ -45,15 +43,15 @@ public class SpringBootJpaFoundationsApplication {
         breedingPlaceList.add(breedingPlace);
 
         Animal animal = new Animal(0L, "Russian", pet2, breedingPlaceList);
-        animalRepository.save(animal);
+        animalRepository.insert(animal);
         System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
 
         Animal animal1 = animalRepository.getById(1L);
         animal1.setBreed("USA");
-        animalRepository.save(animal1);
+        animalRepository.update(animal1);
         System.out.println("animalRepository.getById(1L) = " + animalRepository.getById(1L));
 
-        animalRepository.deleteById(2L);
+        animalRepository.delete(2L);
         System.out.println("animalRepository.findAll() = " + animalRepository.findAll());
     }
 }
