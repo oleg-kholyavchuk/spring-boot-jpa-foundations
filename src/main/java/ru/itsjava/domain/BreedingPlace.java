@@ -14,7 +14,6 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BreedingPlace {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

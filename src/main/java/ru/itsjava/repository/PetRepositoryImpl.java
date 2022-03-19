@@ -13,7 +13,6 @@ import javax.persistence.EntityManager;
 public class PetRepositoryImpl implements PetRepository {
     private final EntityManager entityManager;
 
-
     @Override
     public Pet getById(long id) {
         return entityManager.find(Pet.class, id);

@@ -19,7 +19,6 @@ public class SpringBootJpaFoundationsApplication {
         ApplicationContext context = SpringApplication.run(SpringBootJpaFoundationsApplication.class, args);
 
         PetRepository petRepository = context.getBean(PetRepository.class);
-
         System.out.println("petRepository.getById(1L) = " + petRepository.getById(1L));
 
         Pet pet = new Pet(0L, "Dog");

@@ -1,7 +1,6 @@
 package ru.itsjava.repository;
 
 import ru.itsjava.domain.Animal;
-
 import java.util.List;
 
 public interface AnimalRepository {

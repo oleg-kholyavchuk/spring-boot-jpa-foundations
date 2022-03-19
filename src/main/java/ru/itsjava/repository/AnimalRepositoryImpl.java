@@ -47,4 +47,5 @@ public class AnimalRepositoryImpl implements AnimalRepository {
         Animal animalById = entityManager.find(Animal.class, id);
         entityManager.remove(animalById);
     }
+
 }

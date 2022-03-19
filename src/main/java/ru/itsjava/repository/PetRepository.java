@@ -1,5 +1,4 @@
 package ru.itsjava.repository;
-
 import ru.itsjava.domain.Pet;
 
 public interface PetRepository {
